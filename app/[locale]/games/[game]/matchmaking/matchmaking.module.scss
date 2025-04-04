@@ -1,0 +1,13 @@
+.page-container{
+  padding: 32px 0;
+  text-align: center;
+  color: var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  h1{
+    font-weight: 600;
+  }
+}

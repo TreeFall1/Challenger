@@ -1,0 +1,95 @@
+.svg-container{
+  svg{
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(21%) saturate(537%) hue-rotate(182deg) brightness(94%) contrast(90%);
+  }
+}
+
+.nav{
+  height: 40px;
+  border-bottom: 1px solid rgba(149, 172, 218, 0.15);
+
+  ul{
+    display: flex;
+    height: 40px;
+    gap: 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--light-gray);
+  }
+}
+
+.connect-button{
+  min-width: 130px;
+  height: 40px;
+  width: fit-content;
+  padding: 0 12px;
+}
+
+.connect-modal{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+
+  .images{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h2{
+    margin-top: 32px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  p{
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--light-gray)
+  }
+
+  .btn{
+    width: 100%;
+    height: 48px;
+    margin-top: 32px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .connect-button{
+    min-width: 90px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .nav{
+    ul{
+      gap: 16px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 425px){
+  .connect-modal{
+    .images{
+      width: unset;
+
+      img{
+        display: none;
+
+        &:last-child{
+          display: block;
+        }
+      }
+    }
+  }
+
+}

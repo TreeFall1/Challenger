@@ -1,0 +1,139 @@
+.main{
+  max-width: 1800px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 64px;
+  padding-top: 100px;
+}
+
+.tournaments-container{
+  .title{
+    margin-top: 12px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.top-container{
+  .title{
+    margin-top: 12px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 32px;
+    font-size: 14px;
+    min-width: 100%;
+
+    th {
+      color: var(--light-gray);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    th, td {
+      padding: 16px 10px;
+      text-align: left;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    td{
+
+      &:first-child{
+        color: var(--light-gray);
+      }
+
+      span{
+        display: flex;
+        align-items: center;
+      }
+
+      .sub{
+        color: var(--light-gray)
+      }
+    }
+
+    tr{
+      transition: 200ms;
+
+      &:hover{
+        background-color: var(--dark-gray);
+
+        td:nth-child(2), td:nth-child(5){
+          color: var(--accent);
+        }
+      }
+    }
+
+    img {
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  }
+}
+
+.games-container{
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0,1fr));
+  gap: 16px;
+}
+
+.page-title{
+  font-weight: 700;
+  font-size: 48px;
+  margin-bottom: 32px;
+  font-family: 'Inter', sans-serif;
+}
+
+.back{
+  display: none;
+}
+
+@media screen and (max-width: 1440px){
+  .games-container{
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    padding-right: 32px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .back{
+    display: block;
+  }
+
+  .page-title{
+    font-size: 32px;
+    margin: 16px 0;
+  }
+
+  .games-container{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    padding: 0;
+  }
+
+  .top-container{
+    display: none;
+  }
+
+  .main{
+    grid-template-columns: 1fr;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .games-container{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}

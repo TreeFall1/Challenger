@@ -1,0 +1,17 @@
+{
+  "role": "USER",
+  "status": "Active now",
+  "reg-1": "Signed up",
+  "reg-2": "ago",
+  "played": "Played",
+  "winrate": "Winrate",
+  "reputation": "Reputation",
+  "info-title": "No information",
+  "info-subtitle": "You have not added any information yet",
+  "info-fullname": "Full name",
+  "info-email": "Reserve email",
+  "edit-btn": "Edit profile",
+  "modal-steam": "Connect Steam",
+  "modal-btn": "Submit",
+  "modal-title": "Enter information about you"
+}

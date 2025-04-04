@@ -1,0 +1,40 @@
+.page-container{
+  padding: 32px 0;
+
+  h1{
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+}
+
+.rec-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+
+.rec-list > *:first-child{
+  grid-column: span 3; /* Первый элемент занимает всю ширину */
+}
+
+@media screen and (max-width: 768px) {
+  .rec-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rec-list > *:first-child{
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .rec-list{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .rec-list > *:first-child{
+    grid-column: span 1;
+  }
+}

@@ -1,0 +1,26 @@
+.card{
+  cursor: pointer;
+  height: fit-content;
+
+  h3{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  img{
+    width: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 14px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.2s;
+
+    &:hover{
+      transform: scale(1.03);
+    }
+  }
+}
