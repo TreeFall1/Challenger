@@ -49,7 +49,7 @@ export const Header = ()=>{
   }, [])
 
   useEffect(() => {
-    if(pathname){
+    if(pathname && window.innerWidth < 1025){
       closeMenu();
     }
   }, [pathname]);
