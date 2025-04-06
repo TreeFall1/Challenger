@@ -9,8 +9,8 @@ import {dir} from 'i18next'
 
 
 export const metadata = {
-  title: "Сhallengermode tournaments",
-  description: "Tournaments by Challengermode",
+  title: "Aimkills tournaments",
+  description: "Tournaments by Aimkills",
 };
 
 export function generateStaticParams() {

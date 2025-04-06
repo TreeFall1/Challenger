@@ -107,7 +107,7 @@ export const Header = ()=>{
           <div className={styles['l-container']}>
             <div className={styles['main']}>
               <Link href={'/'}>
-                <Image className={styles['logo']} src={'/logo.svg'} alt="logo" width={28} height={18}/>
+                <Image className={styles['logo']} src={'/logo-new.png'} alt="logo" width={256} height={128}/>
               </Link>
               <ul>
                 <li style={normalizedPath === '/games' ? navStyles.current : navStyles.off}><Link href={'/games'}>{t('header-nav-games')}</Link>
