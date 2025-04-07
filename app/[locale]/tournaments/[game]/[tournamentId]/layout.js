@@ -34,6 +34,10 @@ export default async function TournamentsPageLayout(props){
       title: t('nav-prizes'),
       href: `/tournaments/${game}/${tournamentId}/prizes`
     },
+    {
+      title: 'Team',
+      href: `/tournaments/${game}/${tournamentId}/team`
+    }
   ];
   const tournamentData = tournamentsList[game][tournamentId];
   const tournamentSponsor = tournamentData.info.split('•')[0].split('Hosted by ')[1];

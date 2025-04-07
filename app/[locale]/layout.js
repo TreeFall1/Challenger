@@ -5,6 +5,7 @@ import i18nConfig from "@/i18nConfig";
 import TranslationsProvider from "@/app/components/TranslationProvider";
 import initTranslations from "@/app/i18n";
 import {dir} from 'i18next'
+import {Footer} from "@/app/components/Footer/Footer";
 
 
 
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({ children, params }) {
-  const i18nNamespaces = ['home', 'sub', 'components', 'profile'];
+  const i18nNamespaces = ['home', 'sub', 'components', 'profile', 'contacts', 'politics'];
   const locale = (await params).locale;
   const { resources } = await initTranslations(locale, i18nNamespaces);
 
@@ -29,6 +30,7 @@ export default async function RootLayout({ children, params }) {
           <Header />
           <Aside />
           {children}
+          <Footer />
         </body>
       </html>
     </TranslationsProvider>

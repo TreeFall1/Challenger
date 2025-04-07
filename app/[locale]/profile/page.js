@@ -27,6 +27,7 @@ export default function ProfilePage(){
       fullname: getCookie('fullname'),
       telegram: getCookie('telegram'),
       remail: getCookie('r-email'),
+      region: getCookie('region')
     })
   }
 
@@ -82,6 +83,7 @@ export default function ProfilePage(){
     document.cookie = `fullname=${document.getElementById("fullname").value}; path=/; expires=${getDate(false)}`;
     document.cookie = `telegram=${document.getElementById("telegram").value}; path=/; expires=${getDate(false)}`;
     document.cookie = `r-email=${document.getElementById("r-email").value}; path=/; expires=${getDate(false)}`;
+    document.cookie = `region=${document.getElementById("region").value}; path=/; expires=${getDate(false)}`;
     updateUserdata();
   }
 
@@ -130,7 +132,9 @@ export default function ProfilePage(){
                 <p>{t('info-subtitle')}</p>
               </>
           )}
-          <div style={{gridTemplateColumns: `repeat(${!!userData?.telegram + !!userData?.fullname + !!userData?.remail}, 1fr)`}} className={styles['userdata-info']}>
+          <div
+              style={{gridTemplateColumns: `repeat(${!!userData?.telegram + !!userData?.fullname + !!userData?.remail + !!userData?.region}, 1fr)`}}
+              className={styles['userdata-info']}>
             {userData?.fullname && (
                 <div className={styles['userdata-container']}>
                   <h3 className={styles['userdata-title']}>{t('info-fullname')}</h3>
@@ -149,23 +153,33 @@ export default function ProfilePage(){
                   <p className={styles['userdata-text']}>{userData.remail}</p>
                 </div>
             )}
+            {userData?.region && (
+                <div className={styles['userdata-container']}>
+                  <h3 className={styles['userdata-title']}>Region</h3>
+                  <p className={styles['userdata-text']}>{userData.region}</p>
+                </div>
+            )}
           </div>
+          <p className={styles['steam-connect']}>Steam: Not connected</p>
+
           <button onClick={modalHandler}>{t('edit-btn')}</button>
         </div>
         {isModalOpen && (
             <ModalWindowOverlay customStyles={{padding: '32px'}} onClose={modalHandler}>
               {isSteamModalOpen ? (<SteamModal onClose={steamModalHandler} />) : (
-                <form className={styles['modal-container']} onSubmit={formHandler}>
-                  <h2>{t('modal-title')}</h2>
-                  <label htmlFor="fullname">{t('info-fullname')}</label>
-                  <input required min={3} id={'fullname'} type="text" placeholder={'Joe Anderson'}/>
-                  <label htmlFor="telegram">Telegram</label>
-                  <input required min={3} id={'telegram'} type="text" placeholder={'@username'}/>
-                  <label htmlFor="r-email">{t('info-email')}</label>
-                  <input required min={3} id={'r-email'} type="email" placeholder={'email@mail.com'}/>
-                  <button className={'green'} onClick={steamModalHandler}>{t('modal-steam')}</button>
-                  <button className={'accent'} type={'submit'}>{t('modal-btn')}</button>
-                </form>
+                  <form className={styles['modal-container']} onSubmit={formHandler}>
+                    <h2>{t('modal-title')}</h2>
+                    <label htmlFor="fullname">{t('info-fullname')}</label>
+                    <input required min={3} id={'fullname'} type="text" placeholder={'Joe Anderson'}/>
+                    <label htmlFor="telegram">Telegram</label>
+                    <input required min={3} id={'telegram'} type="text" placeholder={'@username'}/>
+                    <label htmlFor="r-email">{t('info-email')}</label>
+                    <input required min={3} id={'r-email'} type="email" placeholder={'email@mail.com'}/>
+                    <label htmlFor="region">Region</label>
+                    <input required min={3} id={'region'} type="text" placeholder={'Canada'}/>
+                    <button className={'green'} onClick={steamModalHandler}>{t('modal-steam')}</button>
+                    <button className={'accent'} type={'submit'}>{t('modal-btn')}</button>
+                  </form>
               )}
             </ModalWindowOverlay>
         )}

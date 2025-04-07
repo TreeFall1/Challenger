@@ -4,9 +4,10 @@ import Image from "next/image";
 import {ModalWindowOverlay} from "@/app/components/ModalWindow/ModalWindowOverlay";
 import {useState} from "react";
 import {cardsData, nicknames, tournamentsList} from "@/app/tools/tools";
-import {getTeamsByGame, teams} from "@/app/tools/generator";
 import {SteamModal} from "@/app/components/ModalWindow/SteamModal";
 import {useTranslation} from "react-i18next";
+import {useRouter} from "next/navigation";
+
 
 
 export const TeamComponent = (props)=>{
@@ -15,7 +16,7 @@ export const TeamComponent = (props)=>{
   const gameData = cardsData.find(el=> el.href === game);
   const tournamentData = tournamentsList[game][tournamentId];
   const teamSize = Number(tournamentData.info.split('•')[2].split('v')[0]);
-  const {t} = useTranslation('components')
+  const {t} = useTranslation('components');
 
   const modalHandler = ()=>{
     if(!isLocked){
@@ -37,7 +38,7 @@ export const TeamComponent = (props)=>{
           </div>
         </div>
         {isModalOpen && (
-            <TeamModal teamSize={teamSize} teamImg={teamImg} data={players} title={title} onClose={modalHandler}/>
+            <TeamModal game={game} tournamentId={tournamentId} teamSize={teamSize} teamImg={teamImg} data={players} title={title} onClose={modalHandler}/>
         )}
       </>
 
@@ -46,9 +47,11 @@ export const TeamComponent = (props)=>{
 
 const TeamModal = (props) => {
   const [activeTab, setActiveTab] = useState('members');
-  const { data, title, teamImg, teamSize } = props;
+  const { data, title, teamImg, teamSize, game, tournamentId } = props;
   const [isSteamModalOpen, setIsSteamModalOpen] = useState(false);
   const {t} = useTranslation('components');
+  const router = useRouter();
+
   const navStyles = {
     current: {color: "#fff", borderBottom: '2px solid var(--accent)'},
     off: {color: 'var(--light-gray)'}
@@ -66,9 +69,14 @@ const TeamModal = (props) => {
     setIsSteamModalOpen(!isSteamModalOpen);
   }
 
-  const joinButton = ()=>{
-    setIsSteamModalOpen(!isSteamModalOpen);
+  const getDate = (isNow = true)=>{
+    let date = new Date(Date.now() + (isNow ? 0 : 86400e3));
+    return date.toUTCString();
+  }
 
+  const joinButton = ()=>{
+    document.cookie = `currentTeam=${title}; path=/; expires=${getDate(false)}`;
+    router.push(`/tournaments/${game}/${tournamentId}/team`);
   }
 
   return (

@@ -1,0 +1,66 @@
+.page-container{
+  margin: 32px 0;
+
+  h2{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .players-container{
+
+  }
+
+  .player{
+    padding: 8px;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 520px;
+    margin-bottom: 8px;
+
+    .username{
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 600;
+    }
+
+    img{
+      border-radius: 100px;
+    }
+
+    .badge{
+      padding: 1px 8px;
+      border: 2px solid var(--purple);
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 16px;
+    }
+
+    .status{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .ready{
+        padding: 1px 8px;
+        border: 2px solid mediumspringgreen;
+        color: mediumspringgreen;
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 16px;
+      }
+
+      .not-ready{
+        background-color: transparent;
+        border: 2px solid var(--red);
+        color: var(--red);
+        height: 40px;
+      }
+    }
+  }
+}

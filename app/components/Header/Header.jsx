@@ -56,7 +56,7 @@ export const Header = ()=>{
 
   useEffect(() => {
     if(username){
-      const isLogged = localStorage.getItem('isLogged');
+      const isLogged = getCookie('isLogged');
       if(isLogged){
         setIsLoggedIn(true);
       }
@@ -82,7 +82,7 @@ export const Header = ()=>{
     regModalHandler();
     setIsLoggedIn(true);
     setUsername(document.getElementById("username").value);
-    localStorage.setItem('isLogged', 'true');
+    document.cookie = `isLogged=true; path=/; expires=${getDate(false)}`;
     router.push('/profile');
   }
 
@@ -94,6 +94,10 @@ export const Header = ()=>{
     let date = new Date(Date.now() + (isNow ? 0 : 86400e3));
     return date.toUTCString();
   }
+
+  useEffect(() => {
+    getUsername();
+  }, [pathname]);
 
   return (
       <header style={{height: isLoggedIn ? '90px' : '56px'}} className={styles['header']}>
@@ -176,7 +180,13 @@ export const Header = ()=>{
                     <button onClick={regModalHandler} className={'white'}>{t('header-signup-btn')}</button>
                   </div>
               )}
-              <LanguageChanger />
+              <div className={styles['menu-el']}>
+                <Link onClick={closeMenu} href={'/contacts'}>Contacts</Link>
+              </div>
+              <div className={styles['menu-el']}>
+                <Link onClick={closeMenu} href={'/politics'}>Privacy policy</Link>
+              </div>
+              <LanguageChanger/>
             </div>
           </div>
         </div>
@@ -184,28 +194,28 @@ export const Header = ()=>{
             isRegModalOpen && (
                 <div className={styles['modal-container']}>
                   <ModalWindowOverlay onClose={regModalHandler} title={t('log-reg')}>
-                <p className={styles['subtitle']}>{t('reg-title')} <span onClick={e => {
-                  regModalHandler();
-                  loginModalHandler()
-                }}>{t('reg-login')}</span></p>
-                <form onSubmit={register}>
-                  <label htmlFor="username">{t('reg-username')}</label>
-                  <input required type="text" placeholder={'Username'} id={'username'}/>
-                  <label htmlFor="password">{t('reg-password')}</label>
-                  <input required type="password" placeholder={'Password'} id={'password'}/>
-                  <label htmlFor="email">{t('reg-email')}</label>
-                  <input required type="email" placeholder={'Email'} id={'email'}/>
-                  <label>{t('reg-date')}</label>
-                  <div className={styles['date-container']}>
-                    <input required type="text" max={3000} min={1} placeholder={'Year'}/>
-                    <input required type="text" max={12} min={1} placeholder={'Mon'}/>
-                    <input required type="text" max={31} min={1} placeholder={'Day'}/>
-                  </div>
-                  <button className={'accent'}>{t('reg-btn')}</button>
-                  <p className={styles['rules']}>{t('reg-rules')}</p>
-                </form>
-              </ModalWindowOverlay>
-            </div>
+                      <p className={styles['subtitle']}>{t('reg-title')} <span onClick={e => {
+                    regModalHandler();
+                    loginModalHandler()
+                  }}>{t('reg-login')}</span></p>
+                  <form onSubmit={register}>
+                    <label htmlFor="username">{t('reg-username')}</label>
+                    <input required type="text" placeholder={'Username'} id={'username'}/>
+                    <label htmlFor="password">{t('reg-password')}</label>
+                    <input required type="password" placeholder={'Password'} id={'password'}/>
+                    <label htmlFor="email">{t('reg-email')}</label>
+                    <input required type="email" placeholder={'Email'} id={'email'}/>
+                    <label>{t('reg-date')}</label>
+                    <div className={styles['date-container']}>
+                      <input required type="text" max={3000} min={1} placeholder={'Year'}/>
+                      <input required type="text" max={12} min={1} placeholder={'Mon'}/>
+                      <input required type="text" max={31} min={1} placeholder={'Day'}/>
+                    </div>
+                    <button className={'accent'}>{t('reg-btn')}</button>
+                    <p className={styles['rules']}>{t('reg-rules')}</p>
+                  </form>
+                </ModalWindowOverlay>
+              </div>
         )
         }
         {isLoginModalOpen && (

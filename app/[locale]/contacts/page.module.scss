@@ -1,0 +1,243 @@
+.main{
+  max-width: 766px;
+  color: #FAFAFA;
+
+
+
+  .header{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 40px 0;
+
+    .title{
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+
+      img{
+        filter: var(--filter-accent-blue);
+      }
+
+      h1{
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -.02em;
+        line-height: 48px;
+      }
+    }
+
+    p{
+      color: #78818f;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 21px;
+    }
+  }
+
+  .form{
+    background: radial-gradient(68.41% 68.41% at 50% 136.46%, rgba(22, 178, 202, 0.4) 0,transparent 100%), #1a1c26;
+    border-radius: 8px;
+    padding: 40px 0 27px;
+    margin: 8px;
+
+    .form-title{
+      font-size: 24px;
+      font-style: normal;
+      font-variant-numeric: lining-nums tabular-nums;
+      font-weight: 700;
+      line-height: 130%;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .inputs{
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto 20px;
+      max-width: 566px;
+
+      input{
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid var(--gray);
+        background: var(--gray-blue);
+        font-size: 14px;
+        height: 48px;
+        align-items: center;
+        display: flex;
+        gap: 16px;
+        padding: 0 16px;
+        position: relative;
+        transition: border-color .2s;
+        outline: none;
+
+        &::placeholder{
+          color: var(--light-gray)
+        }
+      }
+
+      textarea{
+        border: 1px solid var(--gray);
+        border-radius: 8px;
+        grid-column: 1/-1;
+        min-height: 103px;
+        padding: 16px;
+        resize: none;
+        outline: none;
+
+        &::placeholder{
+          color: var(--light-gray);
+          font-size: 14px;
+        }
+      }
+    }
+
+    .buttons{
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 30px;
+      max-width: 566px;
+
+      button{
+        min-width: 280px;
+        border-radius: 8px;
+        white-space: nowrap;
+        padding: 0 20px;
+        font-weight: 700;
+        overflow: hidden;
+        position: relative;
+        align-items: center;
+        border: 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        letter-spacing: .01em;
+        transition: all .2s ease-in-out;
+        width: auto;
+        background-color: var(--accent);
+        font-size: 14px;
+      }
+    }
+
+    .email-block{
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40px;
+      row-gap: 6px;
+
+      p:first-child{
+        margin: 0;
+        padding: 0;
+        color: #78818f;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%;
+        text-align: center;
+      }
+
+      p:last-child{
+
+      }
+    }
+
+    .divider{
+      height: 2px;
+      border-top: 2px dashed var(--background);
+      opacity: .7;
+    }
+
+    .socials{
+      margin-top: 16px;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      row-gap: 14px;
+
+      h2{
+        color: #78818f;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%;
+        text-align: center;
+      }
+
+      ul{
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 11px;
+
+        li{
+          align-items: center;
+          background: var(--accent-dark);
+          border-radius: 8px;
+          display: flex;
+          height: 48px;
+          justify-content: center;
+          transition: .3s;
+          width: 48px;
+          cursor: pointer;
+
+          &:hover{
+            background: var(--accent);
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    &{
+      max-width: unset;
+    }
+
+    .header{
+      margin: 12px 0;
+      .title{
+        gap: 8px;
+
+        h1{
+          font-size: 20px;
+        }
+
+        img{
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      p{
+        display: none;
+      }
+    }
+
+    .form{
+      padding: 20px 20px 24px;
+
+      .form-title{
+        font-size: 16px;
+      }
+
+      .inputs{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .buttons{
+        button{
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+}

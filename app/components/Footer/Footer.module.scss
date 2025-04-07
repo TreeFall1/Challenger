@@ -1,0 +1,44 @@
+.footer{
+  position: relative;
+  padding: 16px 12px;
+  z-index: 3;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px -2px 5px 1px #0003;
+  margin-top: 32px;
+
+  img{
+    padding: 8px;
+  }
+
+  .link{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    justify-content: flex-end;
+
+    p{
+      font-size: 14px;
+      color: var(--light-gray);
+    }
+
+    a{
+      transition: 200ms;
+      font-size: 14px;
+      color: var(--light-gray);
+
+      &:hover{
+        color: var(--accent)
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer{
+    display: none;
+  }
+}

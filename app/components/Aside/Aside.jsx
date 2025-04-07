@@ -14,8 +14,7 @@ export const Aside = ()=>{
 
   useEffect(() => {
     if(getCookie('username')){
-      setIsLoggedIn(localStorage.getItem('isLogged'));
-      console.log('true')
+      setIsLoggedIn(getCookie('isLogged'));
     } else{
       setIsLoggedIn(false);
     }
