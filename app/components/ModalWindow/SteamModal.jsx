@@ -18,7 +18,9 @@ export const SteamModal = (props)=>{
           </div>
           <h2>{t('steam-title')}</h2>
           <p>{t('steam-subtitle')}</p>
-          <button className={`green ${styles['btn']}`}>{t('steam-btn')}</button>
+          <a href={'https://aimkills.team'}>
+            <button className={`green ${styles['btn']}`}>{t('steam-btn')}</button>
+          </a>
         </div>
       </ModalWindowOverlay>
   )
