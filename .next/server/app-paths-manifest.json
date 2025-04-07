@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/[locale]/contacts/page": "app/[locale]/contacts/page.js",
+  "/[locale]/games/page": "app/[locale]/games/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/politics/page": "app/[locale]/politics/page.js",
+  "/[locale]/profile/page": "app/[locale]/profile/page.js",
+  "/[locale]/spaces/page": "app/[locale]/spaces/page.js",
+  "/[locale]/games/[game]/matchmaking/page": "app/[locale]/games/[game]/matchmaking/page.js",
+  "/[locale]/games/[game]/rating/page": "app/[locale]/games/[game]/rating/page.js",
+  "/[locale]/games/[game]/tournaments/page": "app/[locale]/games/[game]/tournaments/page.js",
+  "/[locale]/games/[game]/page": "app/[locale]/games/[game]/page.js",
+  "/[locale]/tournaments/[game]/[tournamentId]/matches/page": "app/[locale]/tournaments/[game]/[tournamentId]/matches/page.js",
+  "/[locale]/tournaments/[game]/[tournamentId]/page": "app/[locale]/tournaments/[game]/[tournamentId]/page.js",
+  "/[locale]/tournaments/[game]/[tournamentId]/prizes/page": "app/[locale]/tournaments/[game]/[tournamentId]/prizes/page.js",
+  "/[locale]/tournaments/[game]/[tournamentId]/team/page": "app/[locale]/tournaments/[game]/[tournamentId]/team/page.js",
+  "/[locale]/tournaments/[game]/[tournamentId]/teams/page": "app/[locale]/tournaments/[game]/[tournamentId]/teams/page.js"
+}

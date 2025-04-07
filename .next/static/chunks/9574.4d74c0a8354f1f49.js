@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9574],{9574:s=>{s.exports=JSON.parse('{"title":"Contact us","subtitle":"Aimkills contacts - Contact us just now!","formTitle":"Leave your Feedback and Suggestions","btn":"Save","support":"For all your general inquiries and support needs","socials":"Our Socials"}')}}]);

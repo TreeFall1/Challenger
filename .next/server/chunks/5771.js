@@ -1,0 +1,1 @@
+"use strict";exports.id=5771,exports.ids=[5771],exports.modules={85771:t=>{t.exports=JSON.parse('{"hero-title":"Войдите чтобы соревноваться в пользовательском турнире PUBG!","hero-btn":"Сразиться","tournaments-title":"Турниры для вас","games-title":"Обзор игр"}')}};

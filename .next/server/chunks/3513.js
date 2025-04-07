@@ -1,0 +1,1 @@
+"use strict";exports.id=3513,exports.ids=[3513],exports.modules={73513:s=>{s.exports=JSON.parse('{"title":"Свяжитесь с нами","subtitle":"Контакты Aimkills - Свяжитесь с нами прямо сейчас!","formTitle":"Оставьте свой отзыв и предложения","btn":"Сохранить","support":"По всем общим вопросам и вопросам поддержки","socials":"Мы в соцсетях"}')}};
