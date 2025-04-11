@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[492],{492:e=>{e.exports=JSON.parse('{"hero-title":"Sign up now to compete in the PUBG Players Tour!","hero-btn":"Compete","tournaments-title":"Tournaments for you","games-title":"Browse games"}')}}]);

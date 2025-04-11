@@ -1,1 +1,0 @@
-"use strict";exports.id=9768,exports.ids=[9768],exports.modules={99768:s=>{s.exports=JSON.parse('{"title":"联系我们","subtitle":"Aimkills 联系方式 - 立即联系我们！","formTitle":"留下您的反馈和建议","btn":"保存","support":"如有任何一般性咨询或支持需求，请联系我们","socials":"我们的社交平台"}')}};
