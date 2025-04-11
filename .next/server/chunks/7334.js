@@ -1,1 +1,0 @@
-"use strict";exports.id=7334,exports.ids=[7334],exports.modules={37334:t=>{t.exports=JSON.parse('{"role":"用户","status":"当前在线","reg-1":"注册时间","reg-2":"之前","played":"已玩","winrate":"胜率","reputation":"信誉","info-title":"无信息","info-subtitle":"您尚未添加任何信息","info-fullname":"全名","info-email":"备用邮箱","edit-btn":"编辑个人资料","modal-steam":"连接 Steam","modal-btn":"提交","modal-title":"输入您的个人信息"}')}};

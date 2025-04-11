@@ -1,1 +1,0 @@
-"use strict";exports.id=9710,exports.ids=[9710],exports.modules={69710:t=>{t.exports=JSON.parse('{"hero-title":"立即注册，参加 PUBG 玩家巡回赛！","hero-btn":"参赛","tournaments-title":"为您推荐的锦标赛","games-title":"浏览游戏"}')}};

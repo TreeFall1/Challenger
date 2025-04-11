@@ -1,1 +1,0 @@
-"use strict";exports.id=5073,exports.ids=[5073],exports.modules={45073:e=>{e.exports=JSON.parse('{"games-title":"游戏","top-title":"顶级玩家","top-user":"用户","top-rating":"评分","spaces-title":"社区","spaces-subtitle":"加入其他玩家的社区，或创建您自己的新社区。","featured-spaces":"精选社区","popular-spaces":"热门社区","members":"成员"}')}};
