@@ -21,7 +21,8 @@ export default async function TournamentPage(props){
   const teamSize = tournamentData.info.split('•')[2];
   const slots = tournamentData.info.split('•')[tournamentData.info.split('•').length - 1].split(' ')[1];
   const minutesUntilStart = tournamentId < 2 ? getTournamentTime() : tournamentData.time;
-  console.log(typeof minutesUntilStart)
+  const prize = tournamentData.info.split('•')[3];
+  console.log(prize)
 
   return (
       <TranslationsProvider namespaces={namespaces} locale={locale} resources={resources}>
@@ -108,7 +109,7 @@ export default async function TournamentPage(props){
               <div className={styles['el']}>
                 <Image src={`/cup.svg`} alt={'Cup'} width={32} height={32}/>
                 <h3>{t('format-prize')}</h3>
-                <p>€10.00</p>
+                <p>{prize && prize.includes('€') ? prize : "€100.00"}</p>
               </div>
               <div className={styles['el']}>
                 <Image src={`/format.svg`} alt={'format'} width={32} height={32}/>

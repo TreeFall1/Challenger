@@ -31,7 +31,9 @@ export const TeamComponent = (props)=>{
                                                                          height={48}/>
           <div className={styles['title']}>
             <h4>{title}</h4>
-            <p>{t('team-status')}</p>
+            {players.length !== teamSize && (
+                <p>{t('team-status')}</p>
+            )}
             {isLocked && (
                 <Image className={styles['locked']} src={'/lock.svg'} alt={'Team is locked'} width={16} height={16} />
             )}
@@ -76,6 +78,8 @@ const TeamModal = (props) => {
 
   const joinButton = ()=>{
     document.cookie = `currentTeam=${title}; path=/; expires=${getDate(false)}`;
+    document.cookie = `currentTournament=${tournamentId}; path=/; expires=${getDate(false)}`;
+    document.cookie = `currentGame=${game}; path=/; expires=${getDate(false)}`;
     router.push(`/tournaments/${game}/${tournamentId}/team`);
   }
 
@@ -97,33 +101,43 @@ const TeamModal = (props) => {
                   style={activeTab === 'matches' ? navStyles.current : navStyles.off}>{t('team-matches')}
               </li>
             </ul>
-            <h2>Lineup</h2>
-            <div className={styles['members-container']}>
-              {data.map((el, id) => {
-                return (
-                    <div key={id} className={styles['el']}>
-                      <Image src={getPlayerImg(el)} alt={'User img'} width={48} height={48}/>
-                      <div className={styles['title']}>
-                        <div className={styles['username']}>
-                          <h4>{el}</h4>
-                          <div className={styles['captain-badge']}>{t('team-captain')}</div>
+            {activeTab === 'members' ? (
+                <>
+                  <h2>Lineup</h2>
+                  <div className={styles['members-container']}>
+                    {data.map((el, id) => {
+                      return (
+                          <div key={id} className={styles['el']}>
+                            <Image src={getPlayerImg(el)} alt={'User img'} width={48} height={48}/>
+                            <div className={styles['title']}>
+                              <div className={styles['username']}>
+                                <h4>{el}</h4>
+                                <div className={styles['captain-badge']}>{t('team-captain')}</div>
+                              </div>
+                              <p>{t('team-status')}</p>
+                            </div>
+                          </div>
+                      )
+                    })}
+                    {data.length !== teamSize && (
+                        <div onClick={joinButton} className={`${styles['el']} ${styles['empty']}`}>
+                          <Image src={'/user.svg'} alt={'User img'} width={48} height={48}/>
+                          <div className={styles['title']}>
+                            <div className={styles['username']}>
+                              <h4>{t('team-join')}</h4>
+                            </div>
+                          </div>
                         </div>
-                        <p>{t('team-status')}</p>
-                      </div>
-                    </div>
-                )
-              })}
-              {data.length !== teamSize && (
-                  <div onClick={joinButton} className={`${styles['el']} ${styles['empty']}`}>
-                    <Image src={'/user.svg'} alt={'User img'} width={48} height={48}/>
-                    <div className={styles['title']}>
-                      <div className={styles['username']}>
-                        <h4>{t('team-join')}</h4>
-                      </div>
-                    </div>
+                    )}
                   </div>
-              )}
-            </div>
+                </>
+            ) : (
+                <div className={styles['matches-container']}>
+                  <Image src={'/list.svg'} alt={'Queue'} width={32} height={32} />
+                  <h2>{t('matches-title')}</h2>
+                  <p>{t('matches-subtitle')}</p>
+                </div>
+            )}
           </div>
       )}
     </ModalWindowOverlay>

@@ -46,5 +46,10 @@
   "match-subtitle": "Unscheduled",
   "match-status": "Waiting",
   "teams-page-title": "Not confirmed",
-  "teams-page-subtitle": "The window to ready up has not opened yet."
+  "teams-page-subtitle": "The window to ready up has not opened yet.",
+  "ready-title": "Ready teams",
+  "waiting-title": "Teams in waiting",
+  "captain-badge": "Captain",
+  "profile-fill": "Fill in the profile",
+  "player-ready": "Verified"
 }

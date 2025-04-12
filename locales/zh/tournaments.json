@@ -38,7 +38,7 @@
   "teams-slots": "空位",
   "prizes": "奖品",
   "prizes-status": "待定",
-  "prizes-team": "队伍",
+  "prizes-team": "团队",
   "prizes-prize": "奖励",
   "settings-title": "游戏设置",
   "matches-title": "比赛",
@@ -46,5 +46,10 @@
   "match-subtitle": "未安排",
   "match-status": "等待中",
   "teams-page-title": "未确认",
-  "teams-page-subtitle": "准备窗口尚未开启。"
+  "teams-page-subtitle": "准备窗口尚未开启。",
+  "ready-title": "准备好的队伍",
+  "waiting-title": "等待中的队伍",
+  "captain-badge": "队长",
+  "profile-fill": "填写个人资料",
+  "player-ready": "已验证"
 }

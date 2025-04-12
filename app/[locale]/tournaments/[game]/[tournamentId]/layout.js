@@ -35,7 +35,7 @@ export default async function TournamentsPageLayout(props){
       href: `/tournaments/${game}/${tournamentId}/prizes`
     },
     {
-      title: 'Team',
+      title: t('prizes-team'),
       href: `/tournaments/${game}/${tournamentId}/team`
     }
   ];
@@ -67,7 +67,7 @@ export default async function TournamentsPageLayout(props){
         </div>
         <div className={stylesLayout['content']}>
           <div className={stylesLayout['nav-container']}>
-            <Nav items={navItems}/>
+            <Nav game={game} tournamentId={tournamentId} items={navItems}/>
           </div>
           {props.children}
         </div>

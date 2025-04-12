@@ -16,6 +16,7 @@ export default async function TeamsPage(props){
   const { game, tournamentId } = await params;
   const tournamentData = tournamentsList[game][tournamentId];
   const tournamentTeams = (teams[game].find(el=>el.tournament === tournamentData.title)).teams;
+  const teamSize = Number(tournamentData.info.split('•')[2].split('v')[0]);
 
 
   return(
@@ -23,10 +24,22 @@ export default async function TeamsPage(props){
         <h2 className={styles['page-title']}>{t("teams-page-title")}</h2>
         <p className={styles['page-subtitle']}>{t("teams-page-subtitle")}</p>
         <div className={styles['teams-container']}>
-          {tournamentTeams.map((el, id)=>{
-            return(
-              <TeamComponent {...el} key={id} id={id} tournamentId={tournamentId} game={game} />
-            )
+          <h2 className={styles['subtitle']}>{t('ready-title')}</h2>
+          {tournamentTeams.map((el, id) => {
+            if (el.players.length === teamSize) {
+              return (
+                  <TeamComponent {...el} key={id} id={id} tournamentId={tournamentId} game={game}/>
+              )
+            }
+          })}
+          <h2 className={styles['subtitle']}>{t('waiting-title')}</h2>
+
+          {tournamentTeams.map((el, id) => {
+            if (el.players.length !== teamSize) {
+              return (
+                  <TeamComponent {...el} key={id} id={id} tournamentId={tournamentId} game={game}/>
+              )
+            }
           })}
         </div>
       </div>

@@ -5,6 +5,7 @@ import {getCookie, nicknames} from "@/app/tools/tools";
 import {use, useEffect, useState} from 'react'
 import Image from "next/image";
 import {useRouter} from "next/navigation";
+import {useTranslation} from "react-i18next";
 
 
 export default function TeamPage (props){
@@ -12,8 +13,11 @@ export default function TeamPage (props){
   const params = props.params;
   const { game, tournamentId } = use(params);
   const router = useRouter();
+  const {t} = useTranslation('tournaments');
 
   useEffect(() => {
+    const game = getCookie('currentGame');
+    const tournamentId = getCookie('currentTournament');
     setTeam(teams[game][tournamentId].teams.find(el=> el.title === getCookie('currentTeam')));
   }, []);
 
@@ -38,9 +42,9 @@ export default function TeamPage (props){
                   </div>
                   <div className={styles['status']}>
                     {id === 0 && (
-                        <div className={styles['badge']}>Captain</div>
+                        <div className={styles['badge']}>{t('captain-badge')}</div>
                     )}
-                    <div className={styles['ready']}>Ready</div>
+                    <div className={styles['ready']}>{t('player-ready')}</div>
                   </div>
                 </div>
             )
@@ -51,7 +55,7 @@ export default function TeamPage (props){
               <p>YOU</p>
             </div>
             <div className={styles['status']}>
-              <button onClick={profileFill} className={styles['not-ready']}>Fill in the profile</button>
+              <button onClick={profileFill} className={styles['not-ready']}>{t('profile-fill')}</button>
             </div>
           </div>
         </div>

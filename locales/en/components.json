@@ -29,5 +29,7 @@
   "menu-notifications": "Notifications",
   "menu-chats": "Chats",
   "menu": "Menu",
-  "menu-profile": "Profile"
+  "menu-profile": "Profile",
+  "matches-title": "No matches",
+  "matches-subtitle": "There are currently no ongoing or upcoming matches."
 }

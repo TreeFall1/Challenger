@@ -72,19 +72,19 @@ export const tournamentsList = {
       title: "Locked and Loaded",
       img: "cs-1.webp",
       time: "in 27 minutes, 20:00",
-      info: "Hosted by CS 2 Allstars • Europe • 2v2 • €4.00 • 32 slots",
+      info: "Hosted by CS 2 Allstars • Europe • 2v2 • €400.00 • 32 slots",
     },
     {
       title: "Active duty Deployment",
       img: "cs-2.webp",
       time: "In 33 minutes, 20:30 ",
-      info: "Hosted by CS 2 Allstars • Europe • 5v5 • €10.00 • 32 slots"
+      info: "Hosted by CS 2 Allstars • Europe • 5v5 • €100.00 • 32 slots"
     },
     {
       title: "Battle Buddies",
       img: "cs-3.webp",
       time: "Tomorrow, 21:00",
-      info: "Hosted by CS 2 Allstars • Europe • 2v2 • €8.00 • 32 slots"
+      info: "Hosted by CS 2 Allstars • Europe • 2v2 • €280.00 • 32 slots"
     },
     {
       title: "True Wingman",
@@ -98,25 +98,25 @@ export const tournamentsList = {
       title: "Trial of Heroes",
       img: 'dota-1.webp',
       time: 'Today, 18:00',
-      info: "Hosted by Secret Shop • Europe • 2v2 • €1.00 • 16 slots"
+      info: "Hosted by Secret Shop • Europe • 2v2 • €600.00 • 16 slots"
     },
     {
       title: "The Aegis Defensive",
       img: 'dota-2.webp',
       time: 'Today, 19:30',
-      info: "Hosted by Secret Shop • Europe • 5v5 • €10.00 • 32 slots"
+      info: "Hosted by Secret Shop • Europe • 5v5 • €350.00 • 32 slots"
     },
     {
       title: "Trial of Heroes 2",
       img: 'dota-3.webp',
       time: 'Tomorrow, 18:00',
-      info: "Hosted by Secret Shop • Europe • 2v2 • €1.00 • 16 slots"
+      info: "Hosted by Secret Shop • Europe • 2v2 • €100.00 • 16 slots"
     },
     {
       title: "The Aegis Defensive 2",
       img: 'dota-4.webp',
       time: 'Tomorrow, 19:30',
-      info: "Hosted by Secret Shop • Europe • 5v5 • €10.00 • 32 slots"
+      info: "Hosted by Secret Shop • Europe • 5v5 • €350.00 • 32 slots"
     },
   ],
   pubg: [
@@ -124,25 +124,25 @@ export const tournamentsList = {
       title: "Rogue",
       img: 'pubg-1.webp',
       time: 'Today, 19:00',
-      info: "Hosted by Mercenaries • Europe • 2v2 • €10.00 • 80 slots"
+      info: "Hosted by Mercenaries • Europe • 2v2 • €500.00 • 80 slots"
     },
     {
       title: "Mad House",
       img: 'pubg-3.webp',
       time: 'Today, 22:00',
-      info: "Hosted by Mercenaries • Europe • 5v5 • €8.00 • 32 slots"
+      info: "Hosted by Mercenaries • Europe • 5v5 • €480.00 • 32 slots"
     },
     {
       title: "Bootcamp",
       img: 'pubg-2.webp',
       time: 'Tomorrow, 20:00',
-      info: "Hosted by Mercenaries • Europe • 2v2 • €10.00 • 80 slots"
+      info: "Hosted by Mercenaries • Europe • 2v2 • €500.00 • 80 slots"
     },
     {
       title: "Mercenaries Solos",
       img: 'pubg-4.webp',
       time: 'Tomorrow, 22:00',
-      info: "Hosted by Mercenaries • Europe • 2v2 • €1.00 • 80 slots"
+      info: "Hosted by Mercenaries • Europe • 2v2 • €200.00 • 80 slots"
     },
   ],
   tf: [
@@ -482,19 +482,19 @@ export const favTournaments = [
     title: "Locked and Loaded",
     img: "cs-1.webp",
     time: "in 27 minutes, 20:00",
-    info: "Hosted by CS 2 Allstars • Europe • 2v2 • €4.00 • 32 slots"
+    info: "Hosted by CS 2 Allstars • Europe • 2v2 • €40.00 • 32 slots"
   },
   {
     title: "The Aegis Defensive",
     img: 'dota-2.webp',
     time: 'Today, 19:30',
-    info: "Hosted by Secret Shop • Europe • 5v5 • €10.00 • 32 slots"
+    info: "Hosted by Secret Shop • Europe • 5v5 • €350.00 • 32 slots"
   },
   {
     title: "Bootcamp",
     img: 'pubg-2.webp',
     time: 'Today, 20:00',
-    info: "Hosted by Mercenaries • Europe • 2v2 • €10.00 • 80 slots"
+    info: "Hosted by Mercenaries • Europe • 2v2 • €500.00 • 80 slots"
   },
 ]
 

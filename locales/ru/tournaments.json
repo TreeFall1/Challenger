@@ -46,5 +46,10 @@
   "match-subtitle": "Не запланировано",
   "match-status": "Ожидание",
   "teams-page-title": "Не подтверждено",
-  "teams-page-subtitle": "Окно подготовки ещё не открылось."
+  "teams-page-subtitle": "Окно подготовки ещё не открылось.",
+  "ready-title": "Готовые команды",
+  "waiting-title": "Команды в ожидании",
+  "captain-badge": "Капитан",
+  "profile-fill": "Заполните профиль",
+  "player-ready": "Подтверждён"
 }
