@@ -21,8 +21,17 @@ export default async function TournamentPage(props){
   const teamSize = tournamentData.info.split('•')[2];
   const slots = tournamentData.info.split('•')[tournamentData.info.split('•').length - 1].split(' ')[1];
   const minutesUntilStart = tournamentId < 2 ? getTournamentTime() : tournamentData.time;
-  const prize = tournamentData.info.split('•')[3];
-  console.log(prize)
+  const prize = tournamentData.info.split('•')[3].includes('€') ? tournamentData.info.split('•')[3] : "€100.00"
+
+  function splitPrizes() {
+    const total = Number(prize.split("€")[1]);
+    const first = Math.floor(total * 0.5);
+    const second = Math.floor(total * 0.3);
+    const third = total - first - second;
+
+    return [first, second, third];
+  }
+
 
   return (
       <TranslationsProvider namespaces={namespaces} locale={locale} resources={resources}>
@@ -109,7 +118,7 @@ export default async function TournamentPage(props){
               <div className={styles['el']}>
                 <Image src={`/cup.svg`} alt={'Cup'} width={32} height={32}/>
                 <h3>{t('format-prize')}</h3>
-                <p>{prize && prize.includes('€') ? prize : "€100.00"}</p>
+                <p>{prize}</p>
               </div>
               <div className={styles['el']}>
                 <Image src={`/format.svg`} alt={'format'} width={32} height={32}/>
@@ -168,17 +177,17 @@ export default async function TournamentPage(props){
                 <tr>
                   <td><span><Image style={{filter: 'var(--filter-gold)'}} src={'/cup.svg'} alt={'cup'} width={18} height={18}/> 1</span></td>
                   <td>{t('prizes-status')}</td>
-                  <td>€5.00</td>
+                  <td>€{splitPrizes()[0]}.00</td>
                 </tr>
                 <tr>
                   <td><span><Image style={{filter: 'var(--filter-silver)'}} src={'/cup.svg'} alt={'cup'} width={18} height={18}/> 2</span></td>
                   <td>{t('prizes-status')}</td>
-                  <td>€3.00</td>
+                  <td>€{splitPrizes()[1]}.00</td>
                 </tr>
                 <tr>
                   <td><span><Image style={{filter: 'var(--filter-bronze)'}} src={'/cup.svg'} alt={'cup'} width={18} height={18}/> 3</span></td>
                   <td>{t('prizes-status')}</td>
-                  <td>€2.00</td>
+                  <td>€{splitPrizes()[2]}.00</td>
                 </tr>
                 </tbody>
               </table>

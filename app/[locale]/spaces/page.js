@@ -3,6 +3,7 @@ import styles from './page.module.scss'
 import Image from "next/image";
 import {spaces} from "@/app/tools/tools";
 import {useTranslation} from "react-i18next";
+import {useEffect, useState} from "react";
 
 export default function SpacesPage(){
   const {t} = useTranslation('sub');
@@ -41,12 +42,12 @@ export default function SpacesPage(){
 
 const SpaceElement = (props)=>{
   const {t} = useTranslation('sub');
+  const [clientIcons, setClientIcons] = useState(null);
+
 
   function getRandomBooleanArray() {
     return [Math.random() < 0.5, Math.random() < 0.5];
   }
-
-
 
 
   const returnIcons = (random = false)=>{
@@ -67,12 +68,17 @@ const SpaceElement = (props)=>{
       )
     }
   }
-
   const {title, img, members, isRandom} = props;
+
+
+  useEffect(() => {
+    setClientIcons(returnIcons(isRandom));
+  }, []);
+
   return(
       <div className={styles['space-el']}>
         <Image className={styles['avatar']} src={`/spaces-${img}`} alt={'Space icon'} width={160} height={160} />
-        <span className={styles['title']}>{title} {returnIcons(isRandom)}</span>
+        <span className={styles['title']}>{title} {clientIcons}</span>
         <p>{members} {t('members')}</p>
       </div>
   )
