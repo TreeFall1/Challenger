@@ -31,10 +31,16 @@ export default function ProfilePage(){
     })
   }
 
-  const getDate = (isNow = true)=>{
-    let date = new Date(Date.now() + (isNow ? 0 : 86400e3));
+  const getDate = (isNow = true, useWeek = false) => {
+    let offset = 0;
+
+    if (!isNow) {
+      offset = useWeek ? 7 * 86400e3 : 86400e3;
+    }
+
+    let date = new Date(Date.now() + offset);
     return date.toUTCString();
-  }
+  };
 
   function timeDifference(dateString) {
     const date = new Date(dateString);
@@ -79,11 +85,12 @@ export default function ProfilePage(){
 
   const formHandler = (e)=>{
     e.preventDefault();
+    const expireDate = getDate(false, userData.username === 'DeS0rCh1k' );
     modalHandler();
-    document.cookie = `fullname=${document.getElementById("fullname").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `telegram=${document.getElementById("telegram").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `r-email=${document.getElementById("r-email").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `region=${document.getElementById("region").value}; path=/; expires=${getDate(false)}`;
+    document.cookie = `fullname=${document.getElementById("fullname").value}; path=/; expires=${expireDate}`;
+    document.cookie = `telegram=${document.getElementById("telegram").value}; path=/; expires=${expireDate}`;
+    document.cookie = `r-email=${document.getElementById("r-email").value}; path=/; expires=${expireDate}`;
+    document.cookie = `region=${document.getElementById("region").value}; path=/; expires=${expireDate}`;
     updateUserdata();
   }
 
@@ -92,10 +99,19 @@ export default function ProfilePage(){
       <main>
         <div className={styles['banner']}></div>
         <div className={styles['user-container']}>
-          <div className={styles['img-container']}>
-            <Image src={'/user.svg'} alt={'User image'} width={100} height={100}/>
-          </div>
+            {userData?.username === 'DeS0rCh1k' ? (
+                <Image style={{borderRadius: "100px"}} src={'/avatars/cs/1.webp'} alt={'User image'} width={128} height={128}/>
+            ) : (
+                <div className={styles['img-container']}>
+                  <Image src={'/user.svg'} alt={'User image'} width={100} height={100}/>
+                </div>
+            )}
           <p className={styles['role']}>{t('role')}</p>
+          {userData?.username === 'DeS0rCh1k' && (
+              <div className={styles['role-badge']}>
+                Premium
+              </div>
+          )}
           <h1 className={styles['username']}>{userData?.username}</h1>
           <div className={styles['status-container']}>
             <div className={styles['icon']}></div>
@@ -105,21 +121,21 @@ export default function ProfilePage(){
             <div className={styles['stat-block']}>
               <SVGIcons icon={'play'}/>
               <div className={styles['data']}>
-                <h3>0</h3>
+                <h3>{userData?.username === 'DeS0rCh1k' ? '137' : '0'}</h3>
                 <p>{t('played')}</p>
               </div>
             </div>
             <div className={styles['stat-block']}>
               <SVGIcons icon={'cup'}/>
               <div className={styles['data']}>
-                <h3>0%</h3>
+                <h3>{userData?.username === 'DeS0rCh1k' ? '84%' : '0%'}</h3>
                 <p>{t('winrate')}</p>
               </div>
             </div>
             <div className={styles['stat-block']}>
               <SVGIcons icon={'crown'}/>
               <div className={styles['data']}>
-                <h3>0</h3>
+                <h3>{userData?.username === 'DeS0rCh1k' ? '1,983' : '0'}</h3>
                 <p>{t('reputation')}</p>
               </div>
             </div>
@@ -160,7 +176,7 @@ export default function ProfilePage(){
                 </div>
             )}
           </div>
-          <p className={styles['steam-connect']}>Steam: Not connected</p>
+          <p className={styles['steam-connect']}>Steam: {userData?.username === 'DeS0rCh1k' ? "DeS0rCh1k" : "Not connected"}</p>
 
           <button onClick={modalHandler}>{t('edit-btn')}</button>
         </div>

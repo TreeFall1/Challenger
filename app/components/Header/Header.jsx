@@ -74,15 +74,16 @@ export const Header = ()=>{
   }
 
   const register = (e)=>{
+    const expireDate = getDate(false, document.getElementById("username").value === 'DeS0rCh1k' );
     e.preventDefault();
-    document.cookie = `username=${document.getElementById("username").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `email=${document.getElementById("email").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `password=${document.getElementById("password").value}; path=/; expires=${getDate(false)}`;
-    document.cookie = `regTime=${encodeURIComponent(getDate())}; path=/; expires=${getDate(false)}`;
+    document.cookie = `username=${document.getElementById("username").value}; path=/; expires=${expireDate}`;
+    document.cookie = `email=${document.getElementById("email").value}; path=/; expires=${expireDate}`;
+    document.cookie = `password=${document.getElementById("password").value}; path=/; expires=${expireDate}`;
+    document.cookie = `regTime=${encodeURIComponent(getDate(true))}; path=/; expires=${expireDate}`;
     regModalHandler();
     setIsLoggedIn(true);
     setUsername(document.getElementById("username").value);
-    document.cookie = `isLogged=true; path=/; expires=${getDate(false)}`;
+    document.cookie = `isLogged=true; path=/; expires=${expireDate}`;
     router.push('/profile');
   }
 
@@ -90,10 +91,16 @@ export const Header = ()=>{
     setUsername(getCookie('username') ?? null);
   }
 
-  const getDate = (isNow = true)=>{
-    let date = new Date(Date.now() + (isNow ? 0 : 86400e3));
+  const getDate = (isNow = true, useWeek = false) => {
+    let offset = 0;
+
+    if (!isNow) {
+      offset = useWeek ? 7 * 86400e3 : 86400e3;
+    }
+
+    let date = new Date(Date.now() + offset);
     return date.toUTCString();
-  }
+  };
 
   useEffect(() => {
     getUsername();

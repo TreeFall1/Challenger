@@ -29,6 +29,15 @@
     color: var(--light-gray);
   }
 
+  .role-badge{
+    padding: 2px 8px;
+    border-radius: 64px;
+    background-color: var(--pink);
+    margin: 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
   .username{
     font-size: 48px;
     color: #fff;
